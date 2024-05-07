@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ quiz.name }}</title>
+</head>
+<body>
+    <h1>{{ quiz.name }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question.text }}</td>
+                    <td>
+                        <ul>
+                            {% for option in options %}
+                                {% if option.question == question %}
+                                    <li>{{ option.text }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

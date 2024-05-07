@@ -9,7 +9,7 @@
     <h1>Quiz List</h1>
 
     {% for quiz in quizzes %}
-        <a href="#">
+        <a href="{% url 'quiz_details' quiz.id %}">
             <button>{{ quiz.name }}</button>
         </a>
     {% endfor %}
