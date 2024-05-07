@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 
 from .forms import CustomUserCreationForm
+from .models import Quiz
 
 @login_required
 def mainpage(request):
@@ -20,3 +21,8 @@ def signup(request):
         form = CustomUserCreationForm()
     
     return render(request, 'main/signup.html', {'form': form})
+
+@login_required
+def quiz_list(request):
+    quizzes = Quiz.objects.all()
+    return render(request, 'quiz_list.html', {'quizzes': quizzes})
