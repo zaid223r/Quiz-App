@@ -6,13 +6,13 @@
     <title>Quiz App</title>
 </head>
 <body>
-    <form method='POST'>
+    <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <a href="{% url "logout" %}"><button value="logout">Logout</button></a>
-    </form>
+        <button type="submit">Logout</button>
+    </form>    
     <h1>Welcome to Quiz App</h1>
-    {% if user.isstaff %}
-        <a {% url "add_quiz" %}><button value="Add Quiz">Add Quiz</button></a>
+    {% if user.is_staff %}
+        <a href="#"><button value="Add Quiz">Add Quiz</button></a>
     {% endif %}
     <a href="#"><button value="Join Quiz">Join Quiz</button></a>
 </body>
