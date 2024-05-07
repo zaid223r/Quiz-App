@@ -25,4 +25,4 @@ def signup(request):
 @login_required
 def quiz_list(request):
     quizzes = Quiz.objects.all()
-    return render(request, 'quiz_list.html', {'quizzes': quizzes})
+    return render(request, 'main/quiz_list.html', {'quizzes': quizzes})
